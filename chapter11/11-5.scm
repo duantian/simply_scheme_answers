@@ -1,0 +1,5 @@
+(define (initials sent)
+  (cond ((empty? sent) '())
+	(else (se (first (first sent)) (initials (bf sent))))
+	)
+  )
