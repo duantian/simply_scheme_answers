@@ -1,0 +1,5 @@
+(define (remove-adjacent-duplicates sent)
+  (cond ((empty? sent) '())
+	((empty? (bf sent)) sent)
+	((not (equal? (first sent) (first (bf sent)))) (se (first sent) (remove-adjacent-duplicates (bf sent))))
+	(else (remove-adjacent-duplicates (bf sent)))))

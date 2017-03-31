@@ -1,0 +1,5 @@
+(define (count-adjacent-duplicates sent)
+  (cond ((empty? sent) 0)
+	((empty? (bf sent)) 0)
+	(else (+ (if (equal? (first sent) (first (bf sent))) 1 0) (count-adjacent-duplicates (bf sent))))
+	))
