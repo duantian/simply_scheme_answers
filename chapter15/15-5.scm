@@ -1,0 +1,16 @@
+(define (num_to_symbol n)
+  (cond ((equal? n '2) '(A B C))
+	((equal? n '3) '(D E F))
+	((equal? n '4) '(G H I))
+	((equal? n '5) '(J K L))
+	((equal? n '6) '(M N O))
+	((equal? n '7) '(P Q R S))
+	((equal? n '8) '(T U V))
+	((equal? n '9) '(W X Y Z))
+	(else #F)))
+
+(define (phone-spell n)
+  (if (empty? n) '@
+    (every (lambda (x) 
+	     (every (lambda (y) (if (equal? '@ y) x (word x y))) (phone-spell (bf n)))) 
+	   (num_to_symbol (first n)))))
