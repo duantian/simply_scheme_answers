@@ -1,9 +1,12 @@
+(define (opcode? op)
+  (member op '(+ - * /)))
+
 (define (valid-infix? lst)
   (cond ((null? lst) #T)
 	((number? lst) #T)
 	((>= (length lst) 3) 
 	 (and (valid-infix? (car lst))
-	      (member (car(cdr lst)) '(+ - * /))
+	      (opcode? (car (cdr lst)))
 	      (valid-infix? (cdr (cdr lst)))))
 	((= (length lst) 1) (valid-infix? (car lst)))
 	(else #F)))
